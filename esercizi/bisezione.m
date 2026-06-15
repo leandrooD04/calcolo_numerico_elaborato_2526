@@ -18,7 +18,7 @@ fa = feval(f, a);
 fb = feval(f, b);
 if fa == 0, x = a; return, end
 if fb == 0, x = b; return, end
-if fa * fb > 0, error('Non esiste radice della funzione nell`intervallo inserito'), end
+if fa * fb > 0, error('Non esiste radice della funzione nell''intervallo inserito'), end
 
 
 maxit = ceil(log2(b-a) - log2(tol));

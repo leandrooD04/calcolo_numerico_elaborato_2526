@@ -15,10 +15,10 @@ if nargin < 4, error('Parametri insufficienti'), end
 if nargin < 7, maxit = 1000, end
 if nargin < 6, tol = 1e-12, end
 if nargin < 5, delta = 1e-1, end
-if maxit < 1, error("Numero massimo di iterazioni non valido"), end
-if tol <= 0, error("Tolleranza non valida"), end
-if delta <= 0, error("Delta non valido"), end
-if a >= b, error("Intervallo non valido"), end
+if maxit < 1, error('Numero massimo di iterazioni non valido'), end
+if tol <= 0, error('Tolleranza non valida'), end
+if delta <= 0, error('Delta non valido'), end
+if a >= b, error(' Estremi dell''intervallo non validi'), end
 
 fa = feval(f, a);
 fb = feval(f, b);
