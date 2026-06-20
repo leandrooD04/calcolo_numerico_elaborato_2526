@@ -1,5 +1,5 @@
-function y = newton(xi, fi, x)
-% y = newton(xi, fi, x)
+function y = lagrange(xi, fi, x)
+% x = lagrange(xi, fi, x)
 % Metodo di interpolazione polinomiale in forma di Lagrange
 % Input:
 %   xi - vettore delle ascisse di interpolazione
@@ -11,17 +11,17 @@ if nargin < 3, error('Numero parametri insufficiente'), end
 if length(xi) ~= length(fi), error('Vettori di lunghezze diverse'), end
 if length(unique(xi)) ~= length(xi), error('Sono presenti ascisse non distinte'), end
 
-n = length(xi) - 1;
-w = fi;
+n = length(xi);
+y = zeros(size(x));
 
-for j = 1:n
-    for i = (n + 1):-1:(j + 1)
-        w(i) = (w(i) - w(i-1)) / (xi(i) - xi(i-j));
+for i = 1:n
+    Li = ones(size(x));
+
+    for j = 1:n
+        if i ~= j
+            Li = Li .* (x - xi(j)) / (xi(i) - xi(j));
+        end
     end
-end
-y = w(n + 1) * ones(size(x));
-
-for i = n:-1:1
-    y = y .* (x - xi(i)) + w(i);
+    y = y + fi(i) * Li;
 end
 end

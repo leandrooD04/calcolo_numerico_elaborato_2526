@@ -13,7 +13,7 @@ if mod(n, 1) ~= 0, error('Lunghezza vettore della matrice dei coefficienti non v
 n = round(n);
 if n ~= length(b), error('Le dimensioni dei vettori non sono valide'), end
 
-U = U(:);   % ← forza U a colonna
+U = U(:);
 x = b(:);
 for i = n:-1:1
     idxDiag = i*(i+1)/2;
